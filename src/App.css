@@ -36,3 +36,22 @@
     transform: rotate(360deg);
   }
 }
+ .searchbar{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  gap: 10px;
+ }
+ .search{
+  width: 30%;
+  text-transform: uppercase;
+ }
+ .btnGo{
+  text-decoration: none;
+  
+  border: 1px solid black;
+  border-radius: 4px;
+  padding: 20px;
+  width: fit-content;
+  text-transform: uppercase;
+ }
