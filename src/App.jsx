@@ -9,8 +9,8 @@ function App() {
   const [files,setFiles] = useState([])
   const [matricule,setMatricule] = useState("")
 
-  const fetchFiles = (variable)=>{
-     axios.get(`https://profilacademiqueess.onrender.com/api/v1/files/${variable}/get`)
+  const fetchFiles = async (variable)=>{
+    await axios.get(`https://profilacademiqueess.onrender.com/api/v1/files/${variable}/get`,)
     .then(function(response){
       console.log('matricule is: ' +variable);
       console.log(response.data);
@@ -34,11 +34,14 @@ function App() {
 
       <div>
         {
-        fetchFiles?
+
+        files.length == 0? <div className="App"> 
+        <Spin size="large" />
+      <h3>No Files Yet</h3></div> :
         files.map((item,index)=>{
           return(
             <div className="files" key={index}>
-              <h1>{item.name}</h1> <a  href="#" onClick={()=>{
+              <h3>{item.name}</h3> <a  href="#" onClick={()=>{
 
 const base64String = item.data; // Assuming this is a base64-encoded string
 const byteCharacters = atob(base64String);
@@ -60,9 +63,7 @@ const link = document.createElement('a');
             </div>
           )
         })
-        :   <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '50vh' ,width: '50vw'}}>
-        <Spin size="large" />
-      </div>
+          
       }
       </div>
       
