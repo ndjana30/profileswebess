@@ -59,6 +59,7 @@ const link = document.createElement('a');
   link.setAttribute('download', item.name); // Set the desired filename here
   document.body.appendChild(link);
   link.click();
+  setFiles([]);
           
               }} className='btnGo'>Download</a>
             </div>
