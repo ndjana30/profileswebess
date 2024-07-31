@@ -84,7 +84,7 @@ files.length == 0? <div className="App">
 files.map((item,index)=>{
   return(
     <div className="files" key={index}> 
-      <h3>{item.name}</h3> <a href="" target="_blank" rel="noopener noreferrer" onClick={() => {
+      <h3>{item.name}</h3> <button onClick={() => {
   const base64String = item.data; // Assuming this is a base64-encoded string
   const byteCharacters = atob(base64String);
   const byteNumbers = new Array(byteCharacters.length);
@@ -119,7 +119,7 @@ files.map((item,index)=>{
   }, 100); // Adjust the timeout as needed
 
   setFiles([]);
-}} className='btnGo'>Download</a>
+}} className='btnGo'>Download</button>
 
     </div>
   )
