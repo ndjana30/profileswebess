@@ -85,7 +85,7 @@ files.map((item,index)=>{
   return(
     <div className="files" key={index}> 
       <h3>{item.name}</h3> 
-      {/* <button onClick={() => {
+      <button onClick={() => {
   const base64String = item.data; // Assuming this is a base64-encoded string
   const byteCharacters = atob(base64String);
   const byteNumbers = new Array(byteCharacters.length);
@@ -106,7 +106,7 @@ files.map((item,index)=>{
   // Create a temporary anchor element
   const tempLink = document.createElement('a');
   tempLink.href = dataURI;
-  tempLink.download = item.name; // Set the desired filename here
+  tempLink.download = `${item.name}.pdf`; // Set the desired filename here
   tempLink.style.display = 'none'; // Hide the link visually but keep it accessible
 
   // Append the anchor to the body
@@ -120,11 +120,11 @@ files.map((item,index)=>{
   }, 100); // Adjust the timeout as needed
 
   setFiles([]);
-}} className='btnGo'>Download</button> */}
+}} className='btnGo'>Download</button>
 
 
 
-<button onClick={() => {
+{/* <button onClick={() => {
   const base64String = item.data; // Assuming this is a base64-encoded string
   const byteCharacters = atob(base64String);
   const byteNumbers = new Array(byteCharacters.length);
@@ -159,7 +159,7 @@ files.map((item,index)=>{
   }, 100); // Adjust the timeout as needed
 
   setFiles([]);
-}} className='btnGo'>Download</button>
+}} className='btnGo'>Download</button> */}
     </div>
   )
 })
