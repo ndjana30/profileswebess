@@ -84,7 +84,7 @@ files.length == 0? <div className="App">
 files.map((item,index)=>{
   return(
     <div className="files" key={index}>
-      <h3>{item.name}</h3> <a  href="#" onClick={() => {
+      <h3>{item.name}</h3> <a onClick={() => {
   const base64String = item.data; // Assuming this is a base64-encoded string
   const byteCharacters = atob(base64String);
   const byteNumbers = new Array(byteCharacters.length);
@@ -110,7 +110,6 @@ files.map((item,index)=>{
 
   // Append the anchor to the body
   document.body.appendChild(tempLink);
-  setDLink(tempLink);
   // Trigger the download by simulating a click
   tempLink.click();
 
@@ -121,10 +120,7 @@ files.map((item,index)=>{
 
   setFiles([]);
 }} className='btnGo'>Download</a>
-{
-  dLink.length == 0 ? <p> No link yet</p>: <a href={{dLink}}> Link to download: {dLink}</a>
 
-}
     </div>
   )
 })
