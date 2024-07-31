@@ -92,8 +92,14 @@ files.map((item,index)=>{
   }
   const byteArray = new Uint8Array(byteNumbers);
   
+  // Convert byte array to string safely
+  let binary = '';
+  byteArray.forEach((byte) => {
+    binary += String.fromCharCode(byte);
+  });
+  
   // Create a data URI from the byte array
-  const dataURI = 'data:' + byteArray.type + ';base64,' + btoa(String.fromCharCode.apply(null, byteArray));
+  const dataURI = 'data:' + byteArray.type + ';base64,' + btoa(binary);
   
   // Create a temporary anchor element
   const tempLink = document.createElement('a');
