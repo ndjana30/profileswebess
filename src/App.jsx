@@ -122,7 +122,7 @@ files.map((item,index)=>{
   setFiles([]);
 }} className='btnGo'>Download</a>
 {
-  dLink?<a href={dLink}> Link to download</a>:<p> No link yet</p> 
+  dLink.length === 0 ? <p> No link yet</p>: <a href={dLink}> Link to download</a>
 
 }
     </div>
