@@ -106,7 +106,7 @@ files.map((item,index)=>{
   // Create a temporary anchor element
   const tempLink = document.createElement('a');
   tempLink.href = dataURI;
-  tempLink.download = `${item.name}.pdf`; // Set the desired filename here
+  tempLink.download = item.name; // Set the desired filename here
   tempLink.style.display = 'none'; // Hide the link visually but keep it accessible
 
   // Append the anchor to the body
