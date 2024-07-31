@@ -84,7 +84,8 @@ files.length == 0? <div className="App">
 files.map((item,index)=>{
   return(
     <div className="files" key={index}> 
-      <h3>{item.name}</h3> <button onClick={() => {
+      <h3>{item.name}</h3> 
+      {/* <button onClick={() => {
   const base64String = item.data; // Assuming this is a base64-encoded string
   const byteCharacters = atob(base64String);
   const byteNumbers = new Array(byteCharacters.length);
@@ -119,8 +120,46 @@ files.map((item,index)=>{
   }, 100); // Adjust the timeout as needed
 
   setFiles([]);
-}} className='btnGo'>Download</button>
+}} className='btnGo'>Download</button> */}
 
+
+
+<button onClick={() => {
+  const base64String = item.data; // Assuming this is a base64-encoded string
+  const byteCharacters = atob(base64String);
+  const byteNumbers = new Array(byteCharacters.length);
+  for (let i = 0; i < byteCharacters.length; i++) {
+    byteNumbers[i] = byteCharacters.charCodeAt(i);
+  }
+  const byteArray = new Uint8Array(byteNumbers);
+
+  // Convert byte array to string safely
+  let binary = '';
+  byteArray.forEach((byte) => {
+    binary += String.fromCharCode(byte);
+  });
+
+  // Create a data URI from the byte array
+  const dataURI = 'data:application/pdf;base64,' + btoa(binary);
+
+  // Create a temporary anchor element
+  const tempLink = document.createElement('a');
+  tempLink.href = dataURI;
+  tempLink.download = `${item.name}.pdf`; // Explicitly specifying the .pdf extension
+  tempLink.style.display = 'none'; // Hide the link visually but keep it accessible
+
+  // Append the anchor to the body
+  document.body.appendChild(tempLink);
+  // Trigger the download by simulating a click
+  tempLink.click();
+
+  // Optionally, remove the anchor from the DOM immediately after the download starts
+  setTimeout(() => {
+    document.body.removeChild(tempLink);
+  }, 100); // Adjust the timeout as needed
+
+  setFiles([]);
+}} className='btnGo'>Download</button>
     </div>
   )
 })
