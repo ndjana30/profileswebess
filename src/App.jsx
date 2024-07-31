@@ -8,6 +8,7 @@ function App() {
 
   const [files,setFiles] = useState([])
   const [matricule,setMatricule] = useState("")
+  const [dLink,setDLink]=("")
 
   const fetchFiles = async (variable)=>{
     await axios.get(`https://profilacademiqueess.onrender.com/api/v1/files/${variable}/get`,{headers:{'Access-Control-Allow-Origin' : '*',
@@ -109,7 +110,7 @@ files.map((item,index)=>{
 
   // Append the anchor to the body
   document.body.appendChild(tempLink);
-
+  setDLink(tempLink);
   // Trigger the download by simulating a click
   tempLink.click();
 
@@ -120,6 +121,10 @@ files.map((item,index)=>{
 
   setFiles([]);
 }} className='btnGo'>Download</a>
+{
+  dLink.length == 0?<p></p> :
+<a href={dLink}> Link to download</a>
+}
     </div>
   )
 })
