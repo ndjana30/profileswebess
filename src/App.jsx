@@ -10,7 +10,8 @@ function App() {
   const [matricule,setMatricule] = useState("")
 
   const fetchFiles = async (variable)=>{
-    await axios.get(`https://profilacademiqueess.onrender.com/api/v1/files/${variable}/get`,)
+    await axios.get(`https://profilacademiqueess.onrender.com/api/v1/files/${variable}/get`,{headers:{'Access-Control-Allow-Origin' : '*',
+  'Access-Control-Allow-Methods':'GET,PUT,POST,DELETE,PATCH,OPTIONS',}})
     .then(function(response){
       console.log('matricule is: ' +variable);
       console.log(response.data);
