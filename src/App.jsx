@@ -83,8 +83,8 @@ files.length == 0? <div className="App">
 <h3>No Files Yet</h3></div> :
 files.map((item,index)=>{
   return(
-    <div className="files" key={index}>
-      <h3>{item.name}</h3> <a onClick={() => {
+    <div className="files" key={index}> 
+      <h3>{item.name}</h3> <a href="" target="_blank" rel="noopener noreferrer" onClick={() => {
   const base64String = item.data; // Assuming this is a base64-encoded string
   const byteCharacters = atob(base64String);
   const byteNumbers = new Array(byteCharacters.length);
