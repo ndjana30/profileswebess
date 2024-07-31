@@ -1,5 +1,10 @@
 .App {
   text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 10px;
+  width: 100%;
 }
 
 .App-logo {
@@ -41,17 +46,22 @@
   flex-direction: row;
   justify-content: center;
   gap: 10px;
+  width: 30%;
+  margin: auto;
  }
  .search{
-  width: 30%;
+  width: 100%;
   text-transform: uppercase;
  }
  .btnGo{
   text-decoration: none;
-  
+  background-color: #EAF6F6;
   border: 1px solid black;
   border-radius: 4px;
   padding: 20px;
-  width: fit-content;
+  width: 10%;
   text-transform: uppercase;
+ }
+ .btnGo:hover{
+  background-color: antiquewhite;
  }
