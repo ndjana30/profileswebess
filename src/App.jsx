@@ -91,28 +91,33 @@ files.map((item,index)=>{
     byteNumbers[i] = byteCharacters.charCodeAt(i);
   }
   const byteArray = new Uint8Array(byteNumbers);
-  
+
   // Convert byte array to string safely
   let binary = '';
   byteArray.forEach((byte) => {
     binary += String.fromCharCode(byte);
   });
-  
+
   // Create a data URI from the byte array
   const dataURI = 'data:' + byteArray.type + ';base64,' + btoa(binary);
-  
+
   // Create a temporary anchor element
   const tempLink = document.createElement('a');
   tempLink.href = dataURI;
   tempLink.download = item.name; // Set the desired filename here
-  
-  // Append the anchor to the body and simulate a click
+  tempLink.style.display = 'none'; // Hide the link visually but keep it accessible
+
+  // Append the anchor to the body
   document.body.appendChild(tempLink);
+
+  // Trigger the download by simulating a click
   tempLink.click();
-  
-  // Clean up by removing the anchor from the DOM
-  document.body.removeChild(tempLink);
-  
+
+  // Optionally, remove the anchor from the DOM immediately after the download starts
+  setTimeout(() => {
+    document.body.removeChild(tempLink);
+  }, 100); // Adjust the timeout as needed
+
   setFiles([]);
 }} className='btnGo'>Download</a>
     </div>
