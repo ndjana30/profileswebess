@@ -5,7 +5,6 @@ import { Spin } from 'antd';
 import '../App.css';
 export default function Admin() {
   const [selectedFiles, setSelectedFiles] = useState([]);
-  const [turning,setTurning] = useState(false);
 
   const handleFileChange = (event) => {
     setSelectedFiles([...event.target.files]);
@@ -25,7 +24,6 @@ const postFiles = async () => {
   })
   .then(function(response) {
     console.log(response.data);
-    setTurning(false);
   })
   .catch(function(error) {
     console.log(error);
@@ -37,9 +35,7 @@ const postFiles = async () => {
     <div className="admin">
       <input type="file" name='file'  multiple onChange={handleFileChange} />
       <ul>
-      {turning? <div className="App"> 
-<Spin size="large" />
-</div>: 
+     {
         Array.from(selectedFiles).map((file, index) => (
           
           <li key={index}>{file.name}</li>
