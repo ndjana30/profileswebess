@@ -11,7 +11,6 @@ export default function Admin() {
   };
 
 const postFiles = async () => {
-  setTurning(true);
   const formData = new FormData();
   selectedFiles.forEach((file, index) => {
     formData.append(`file`, file);
