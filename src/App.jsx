@@ -8,8 +8,8 @@ function App() {
   return (
     <Router>
       <Routes>
-        <Route path="/" element={<Matricule />} />
-        <Route path="/admin" element={<Admin />} />
+        <Route path="/"  Component={Matricule} />
+        <Route path="/profs" Component={Admin} />
       </Routes>
     </Router>
   );
