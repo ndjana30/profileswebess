@@ -1,7 +1,7 @@
 import React from 'react';
 import { useState } from 'react';
 import axios from 'axios';
-import { Spin } from 'antd';
+// import { Spin } from 'antd';
 import '../App.css';
 
 export default function Matricule() {
@@ -38,7 +38,7 @@ export default function Matricule() {
             {
 
             files.length === 0? <div className="App"> 
-            <Spin size="large" />
+            
             <h3>No Files Yet</h3></div> :
             files.map((item,index)=>{
             return(
