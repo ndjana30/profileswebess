@@ -30,7 +30,7 @@ export default function Matricule() {
       </div>
       <div className="searchbar">
         <input className='search' type="search" name="" id="" placeholder='matricule' onChange={(e) => setMatricule(e.target.value)}/>
-        <a href='#' className="btnGo"  onClick={()=>fetchFiles(matricule)}>Go</a>
+        <button className="btnGo"  onClick={()=>fetchFiles(matricule)}>Go</button>
       </div>
 
       <div>

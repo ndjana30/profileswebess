@@ -1,7 +1,6 @@
 import React from 'react';
 import { useState } from 'react';
 import axios from 'axios';
-import { Spin } from 'antd';
 import '../App.css';
 export default function Admin() {
   const [selectedFiles, setSelectedFiles] = useState([]);
